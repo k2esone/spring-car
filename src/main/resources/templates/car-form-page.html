@@ -1,0 +1,39 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Form Page</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.2.3/css/bootstrap.min.css">
+</head>
+<body>
+<div class="d-flex flex-column w-50 m-auto">
+    <h3>Car Form Page</h3>
+    <form class="container" th:object="${atrybutObiektFormularza}" th:action="@{/view/car/form}" method="post">
+        <div class="form-group">
+            <label for="pole-nr-rej">Numer rejestracyjny</label>
+            <input th:field="*{regR}" type="text" class="form-control" id="pole-nr-rej" aria-describedby="opis-nr-rej" placeholder="Numer rejestracyjny">
+            <small id="opis-nr-rej" class="form-text text-muted">Podaj numer rejestracyjny samochodu.</small>
+        </div>
+        <hr>
+        <div class="form-group">
+            <label for="pole-ilosc-drzwi">Ilość drzwi</label>
+            <input th:field="*{doorsR}" type="number" class="form-control" id="pole-ilosc-drzwi" aria-describedby="opis-ilosc-drzwi" placeholder="Ilość drzwi">
+            <small id="opis-ilosc-drzwi" class="form-text text-muted">Podaj ilość drzwi w tym samochodzie.</small>
+        </div>
+        <hr>
+        <div class="form-group">
+            <label for="pole-data-rej">Data rejestracji</label>
+            <input th:field="*{registrationDateR}" type="date" class="form-control" id="pole-data-rej" aria-describedby="opis-data-rej" placeholder="Data rejestracji">
+            <small id="opis-data-rej" class="form-text text-muted">Podaj datę pierwszej rejestracji tego pojazdu.</small>
+        </div>
+        <hr>
+        <div class="form-group">
+            <label for="pole-poj-silnika">Pojemność silnika</label>
+            <input th:field="*{engineCapR}"  type="number" step="0.001" class="form-control" id="pole-poj-silnika" aria-describedby="opis-poj-silnika" placeholder="Pojemność silnika">
+            <small id="opis-poj-silnika" class="form-text text-muted">Podaj pojemność skokową silnika tego pojazdu.</small>
+        </div>
+        <button class="btn btn-primary form-control" type="submit">Wyślij</button>
+    </form>
+</div>
+</body>
+</html>
