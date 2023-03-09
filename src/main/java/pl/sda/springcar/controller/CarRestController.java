@@ -31,7 +31,7 @@ public class CarRestController {
     // CREATE
     // http://localhost:8080/car
     @PostMapping()
-    public CarResponse createCar(@RequestBody CreateCarRequest request){
+    public CarResponse createCar(@RequestBody CreateCarRequest request) {
         log.info("Wywolano dodanie samochodu: {}", request);
         return carService.createCar(request);
     }
@@ -42,7 +42,9 @@ public class CarRestController {
         return carService.update(carId, request);
     }
 
-    public void delete(Long carId) {
+    @DeleteMapping("/{carId}")
+    public void delete(@PathVariable Long carId) {
+        log.info("Ktos usunal samochod z identyfikatorem {}", carId);
         carService.deleteById(carId);
     }
 
